@@ -106,12 +106,82 @@ String getTimezoneFromIP() {
 }
 
 String mapTZtoPOSIX(String tz) {
-  if (tz == "Europe/Prague") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
-  if (tz == "Europe/London") return "GMT0BST,M3.5.0/1,M10.5.0/2";
-  if (tz == "Europe/Berlin") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  // UTC
   if (tz == "UTC") return "UTC0";
-  Serial.println("Unknown TZ, fallback to UTC");
-  return "UTC0";
+
+  // Western European Time (UTC+0 / UTC+1 DST)
+  if (tz == "Europe/London")     return "GMT0BST,M3.5.0/1,M10.5.0/2";
+  if (tz == "Europe/Dublin")     return "IST-1GMT0,M10.5.0/2,M3.5.0/1";
+  if (tz == "Europe/Lisbon")     return "WET0WEST,M3.5.0/1,M10.5.0/2";
+  if (tz == "Atlantic/Canary")   return "WET0WEST,M3.5.0/1,M10.5.0/2";
+  if (tz == "Atlantic/Faroe")    return "WET0WEST,M3.5.0/1,M10.5.0/2";
+  if (tz == "Atlantic/Madeira")  return "WET0WEST,M3.5.0/1,M10.5.0/2";
+
+  // Central European Time (UTC+1 / UTC+2 DST)
+  if (tz == "Europe/Amsterdam")  return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Andorra")    return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Belgrade")   return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Berlin")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Bratislava") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Brussels")   return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Budapest")   return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Copenhagen") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Gibraltar")  return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Ljubljana")  return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Luxembourg") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Madrid")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Malta")      return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Monaco")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Oslo")       return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Paris")      return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Podgorica")  return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Prague")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Rome")       return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/San_Marino") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Sarajevo")   return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Skopje")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Stockholm")  return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Tirane")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Vaduz")      return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Vatican")    return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Vienna")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Warsaw")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Zagreb")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Europe/Zurich")     return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+  if (tz == "Arctic/Longyearbyen") return "CET-1CEST,M3.5.0/2,M10.5.0/3";
+
+  // Eastern European Time (UTC+2 / UTC+3 DST)
+  if (tz == "Europe/Athens")     return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Bucharest")  return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Chisinau")   return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Helsinki")   return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Kyiv")       return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Mariehamn")  return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Nicosia")    return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Riga")       return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Sofia")      return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Tallinn")    return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Uzhgorod")   return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Vilnius")    return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Europe/Zaporozhye") return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+  if (tz == "Asia/Nicosia")      return "EET-2EEST,M3.5.0/3,M10.5.0/4";
+
+  // Moscow Time (UTC+3, no DST)
+  if (tz == "Europe/Kaliningrad") return "EET-2";
+  if (tz == "Europe/Moscow")     return "MSK-3";
+  if (tz == "Europe/Minsk")      return "FET-3";
+  if (tz == "Europe/Simferopol") return "MSK-3";
+  if (tz == "Europe/Istanbul")   return "TRT-3";
+  if (tz == "Asia/Istanbul")     return "TRT-3";
+
+  // Iceland (UTC+0, no DST)
+  if (tz == "Atlantic/Reykjavik") return "GMT0";
+
+  // Fallback
+  Serial.print("Unknown TZ: ");
+  Serial.println(tz);
+  Serial.println("Falling back to Czech time (CET)");
+  return "CET-1CEST,M3.5.0/2,M10.5.0/3";
 }
 
 // ===== STARTUP SWEEP =====
